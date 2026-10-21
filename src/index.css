@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ivory: #FAF9F6;
+    --color-gold: #B8863B;
+    --color-charcoal: #20201D;
+    --color-burgundy: #8B2635;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAF9F6;
+    color: #20201D;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Universal focus visible outline for accessibility */
+  :focus-visible {
+    outline: 2px solid #B8863B;
+    outline-offset: 2px;
+  }
+}
+
+/* Subtle Kente-inspired gold woven stripe */
+.kente-stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #B8863B,
+    #B8863B 10px,
+    #8B2635 10px,
+    #8B2635 20px,
+    #20201D 20px,
+    #20201D 30px,
+    #FAF9F6 30px,
+    #FAF9F6 40px
+  );
+}
+
+.kente-border-top {
+  border-top: 3px solid #B8863B;
+  position: relative;
+}
+.kente-border-top::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background-color: #8B2635;
+}
+
+/* Luxury card hover glow */
+.card-hover-elevation {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover-elevation:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -8px rgba(32, 32, 29, 0.08);
+}
+
+/* Subtle Shimmer for Skeleton Loaders */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.animate-shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.4) 20%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+  content: '';
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F6;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8E2D5;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8863B;
+}
